@@ -28,7 +28,7 @@ public class Staff_Test {
 		Staff2 = new Staff("Lily", "Ann", "Yan", new Date(), "street 2", "(302)-243-1595", "231 Road", "Lily@udel.edu", 2, 120000.0, new Date(), eTitle.Jun);
 		Staff3 = new Staff("Felix", "Tian", "Yun", new Date(), "street 3", "(302)-114-6503", "231 Road", "Felix@udel.edu", 3, 140000.0,new Date(), eTitle.Ads);
 		Staff4 = new Staff("Yun", "Lily", "Ann", new Date(), "street 4", "(302)-585-7964", "231 Road", "Yun@udel.edu", 4, 160000.0, new Date(), eTitle.Jun);
-		Staff5 = new Staff("Ann", "Tim", "Lily", new Date(), "street 5", "3028165060", "231 Road", "Ann@udel.edu", 6, 180000.0, new Date(), eTitle.Ads);
+		Staff5 = new Staff("Ann", "Tim", "Lily", new Date(), "street 5", "(302)-816-5060", "231 Road", "Ann@udel.edu", 6, 180000.0, new Date(), eTitle.Ads);
 		StaffList.add(Staff1);
 		StaffList.add(Staff2);
 		StaffList.add(Staff3);
@@ -48,18 +48,26 @@ public class Staff_Test {
 	}	
 	
 	@Test(expected = PersonException.class)
-	public void DOBandPhoneTest() throws PersonException{
+	public void DOBTest() throws PersonException{
 		Calendar newCalendar =  Calendar.getInstance();
 		newCalendar.set(Calendar.YEAR, 1900);
 		newCalendar.set(Calendar.MONTH,2);
 		newCalendar.set(Calendar.DATE,22);
 		Date newDate = newCalendar.getTime();
 		try {
-			Staff5.setDOB(newDate);
+			Staff1.setDOB(newDate);
 		} catch (Exception e) {
-			System.out.println("invalid DOB and phone number");
+			System.out.println("invalid DOB");
 			e.printStackTrace();
 		}
 	}
-
+	@Test(expected = PersonException.class)
+	public void PhoneTest() throws PersonException{
+		try {
+			Staff2.setPhone("3022431595");
+		} catch (Exception e) {
+			System.out.println("invalid phone number");
+			e.printStackTrace();
+		}
+	}
 }
