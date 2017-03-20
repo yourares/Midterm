@@ -111,9 +111,9 @@ public class Student_Test {
 		EnrollmentList.get(5).setGrade(3.0);// 10 points
 		EnrollmentList.get(6).setGrade(3.5);// 14 points
 		EnrollmentList.get(7).setGrade(4.0);// 16 points
-		EnrollmentList.get(8).setGrade(3.0);// 10 points
-		EnrollmentList.get(9).setGrade(4.0);// 16 points
-		
+		EnrollmentList.get(8).setGrade(3.0);
+		EnrollmentList.get(9).setGrade(4.0);
+
 		double culmulativeGrade = 0;
 		double sumofPoints = 0;
 		for (Enrollment i : EnrollmentList) {
@@ -135,75 +135,60 @@ public class Student_Test {
 			}
 
 		}
-		double StudentGrade = culmulativeGrade/sumofPoints;
+		double StudentGrade = culmulativeGrade / sumofPoints;
 		return StudentGrade;
-		
-		assertEquals(StudentGrade(StudentList.get(1).getStudentID()), 3.0,3.0);
-		assertEquals(StudentGrade(StudentList.get(2).getStudentID()), 3.0,3.1);
-		assertEquals(StudentGrade(StudentList.get(3).getStudentID()), 3.0,3.2);
-		assertEquals(StudentGrade(StudentList.get(4).getStudentID()), 3.0,3.3);
-		assertEquals(StudentGrade(StudentList.get(5).getStudentID()), 3.0,3.4);
-		assertEquals(StudentGrade(StudentList.get(6).getStudentID()), 3.0,3.5);
-		assertEquals(StudentGrade(StudentList.get(7).getStudentID()), 3.0,3.0);
-		assertEquals(StudentGrade(StudentList.get(8).getStudentID()), 3.0,3.6);
-		assertEquals(StudentGrade(StudentList.get(9).getStudentID()), 4.0,4.0);
-		assertEquals(StudentGrade(StudentList.get(10).getStudentID()), 3.2,3.2);
-		
 	}
 
-public void Courseaverage(){
-	double Course1 = 0;
-	double Course2 = 0;
-	double Course3 = 0;
-	
-	double numberofCourse1 = 0;
-	double numberofCourse2 = 0;
-	double numberofCourse3 = 0;
+	public void Courseaverage() {
+		double Course1 = 0;
+		double Course2 = 0;
+		double Course3 = 0;
 
-	for (Enrollment i : EnrollmentList) {
-		if (i.getStudentID() == i.getStudentID()) {
-			for (Semester l : SemesterList) {
-				if (l.getSemesterID() == l.getSemesterID()) {
-							for (Section s : SectionList) {
-								if (s.getSectionID() == i.getSectionID()) {
-									for (Course m : CourseList) {
-										if (m.getCourseID() == CourseList.get(1).getCourseID()) {
-									Course1+= i.getGrade();
-									numberofCourse1++;
+		double numberofCourse1 = 0;
+		double numberofCourse2 = 0;
+		double numberofCourse3 = 0;
+
+		for (Enrollment i : EnrollmentList) {
+			if (i.getStudentID() == i.getStudentID()) {
+				for (Semester l : SemesterList) {
+					if (l.getSemesterID() == l.getSemesterID()) {
+						for (Section s : SectionList) {
+							if (s.getSectionID() == i.getSectionID()) {
+								for (Course m : CourseList) {
+									if (m.getCourseID() == CourseList.get(1).getCourseID()) {
+										Course1 += i.getGrade();
+										numberofCourse1++;
+									} else if (m.getCourseID() == CourseList.get(2).getCourseID()) {
+										Course2 += i.getGrade();
+										numberofCourse2++;
+									} else if (m.getCourseID() == CourseList.get(3).getCourseID()) {
+										Course3 += i.getGrade();
+										numberofCourse3++;
+									}
 								}
-										else if (m.getCourseID() == CourseList.get(2).getCourseID()) {
-												Course2+= i.getGrade();	
-												numberofCourse2++;
 							}
-										else if (m.getCourseID() == CourseList.get(3).getCourseID()) {
-											Course3+= i.getGrade();
-											numberofCourse3++;
 						}
 					}
+
 				}
+				double Course1average = Course1 / numberofCourse1;
+				double Course2average = Course2 / numberofCourse1;
+				double Course3average = Course3 / numberofCourse1;
+
+				assertEquals(Course1average, 3.0, 1);
+				assertEquals(Course2average, 3.5, 2);
+				assertEquals(Course3average, 4.0, 3);
+
 			}
+
 		}
 
 	}
-			double Course1average = Course1/numberofCourse1;
-			double Course2average = Course2/numberofCourse1;
-			double Course3average = Course3/numberofCourse1;
-			
-			assertEquals(Course1average, 3.0, 1);
-			assertEquals(Course2average, 3.5, 2);
-			assertEquals(Course3average, 4.0, 3);
-	
-}
-	
-}
 
+	@Test
+	public void ChangeTheMajor() {
+		String Major = StudentList.get(1).getMajor();
+		String newMajor = StudentList.get(2).getMajor();
+		StudentList.get(1).setMajor(newMajor);
 	}
-
-
-@Test
-public void ChangeTheMajor(){
-	String Major = StudentList.get(1).getMajor();
-	String newMajor = StudentList.get(2).getMajor();
-
-}
 }
