@@ -148,6 +148,8 @@ public class Student_Test {
 		double numberofCourse2 = 0;
 		double numberofCourse3 = 0;
 
+		for (Semester l : SemesterList) {
+			if (l.getSemesterID() == l.getSemesterID()) {
 		for (Course m : CourseList) {
 			if (m.getCourseID() == CourseList.get(0).getCourseID()) {
 				Course1 += m.getGradePoints();
@@ -170,7 +172,7 @@ public class Student_Test {
 	assertEquals(Course2average, 3.5, 2.0);
 	assertEquals(Course3average, 4.0, 3.0);
 			}
-
+	}
 	@Test
 	public void ChangeTheMajor() {
 		String Major = StudentList.get(1).getMajor();
