@@ -148,42 +148,28 @@ public class Student_Test {
 		double numberofCourse2 = 0;
 		double numberofCourse3 = 0;
 
-		for (Enrollment i : EnrollmentList) {
-			if (i.getStudentID() == i.getStudentID()) {
-				for (Semester l : SemesterList) {
-					if (l.getSemesterID() == l.getSemesterID()) {
-						for (Section s : SectionList) {
-							if (s.getSectionID() == i.getSectionID()) {
-								for (Course m : CourseList) {
-									if (m.getCourseID() == CourseList.get(1).getCourseID()) {
-										Course1 += i.getGrade();
-										numberofCourse1++;
-									} else if (m.getCourseID() == CourseList.get(2).getCourseID()) {
-										Course2 += i.getGrade();
-										numberofCourse2++;
-									} else if (m.getCourseID() == CourseList.get(3).getCourseID()) {
-										Course3 += i.getGrade();
-										numberofCourse3++;
-									}
-								}
-							}
-						}
-					}
-
-				}
-				double Course1average = Course1 / numberofCourse1;
-				double Course2average = Course2 / numberofCourse1;
-				double Course3average = Course3 / numberofCourse1;
-
-				assertEquals(Course1average, 3.0, 1);
-				assertEquals(Course2average, 3.5, 2);
-				assertEquals(Course3average, 4.0, 3);
-
+		for (Course m : CourseList) {
+			if (m.getCourseID() == CourseList.get(0).getCourseID()) {
+				Course1 += m.getGradePoints();
+				numberofCourse1++;
+			} else if (m.getCourseID() == CourseList.get(1).getCourseID()) {
+				Course2 += m.getGradePoints();
+				numberofCourse2++;
+			} else if (m.getCourseID() == CourseList.get(2).getCourseID()) {
+				Course3 += m.getGradePoints();
+				numberofCourse3++;
 			}
-
 		}
-
 	}
+
+	double Course1average = Course1 / numberofCourse1;
+	double Course2average = Course2 / numberofCourse1;
+	double Course3average = Course3 / numberofCourse1;
+
+	assertEquals(Course1average, 3.0, 1.0);
+	assertEquals(Course2average, 3.5, 2.0);
+	assertEquals(Course3average, 4.0, 3.0);
+			}
 
 	@Test
 	public void ChangeTheMajor() {
