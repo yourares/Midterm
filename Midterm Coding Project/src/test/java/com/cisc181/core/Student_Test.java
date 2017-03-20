@@ -139,6 +139,15 @@ public class Student_Test {
 		return StudentGrade;
 		
 		assertEquals(StudentGrade(StudentList.get(1).getStudentID()), 3.0,3.0);
+		assertEquals(StudentGrade(StudentList.get(2).getStudentID()), 3.0,3.1);
+		assertEquals(StudentGrade(StudentList.get(3).getStudentID()), 3.0,3.2);
+		assertEquals(StudentGrade(StudentList.get(4).getStudentID()), 3.0,3.3);
+		assertEquals(StudentGrade(StudentList.get(5).getStudentID()), 3.0,3.4);
+		assertEquals(StudentGrade(StudentList.get(6).getStudentID()), 3.0,3.5);
+		assertEquals(StudentGrade(StudentList.get(7).getStudentID()), 3.0,3.0);
+		assertEquals(StudentGrade(StudentList.get(8).getStudentID()), 3.0,3.6);
+		assertEquals(StudentGrade(StudentList.get(9).getStudentID()), 4.0,4.0);
+		assertEquals(StudentGrade(StudentList.get(10).getStudentID()), 3.2,3.2);
 		
 	}
 
